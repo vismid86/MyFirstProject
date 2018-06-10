@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+<script>
+
+function myFunction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("my-demo").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "YOUR-API-GATEWAY-LINK-HERE", true);
+    xhttp.send();
+
+}
+
+</script>
 <head>
   <meta charset="utf-8">
   <title>Sample Deployment</title>
@@ -29,6 +44,7 @@
     <h1>WELCOME TO MY PAGE version5</h1>
     <h2>This PAGE IS AUTO DEPLOYED USING AWS CODE DEPLOY AND GITHUB</h2>
     <p>Next steps are to automate the process if this works - To check awscodedeploy</a>.</p>
+	<button onclick="myFunction()">Click me</button><br>
   </div>
 </body>
 </html>
