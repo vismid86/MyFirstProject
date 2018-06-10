@@ -3,6 +3,14 @@ os: linux
 files:
   - source: /index.html
     destination: /var/www/html/
+Resources:
+  - MyLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "MyLambdaFunction"
+        Alias: "default"
+        CurrentVersion: "1"
+        TargetVersion: "2"
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
